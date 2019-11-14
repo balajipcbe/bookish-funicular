@@ -22,6 +22,29 @@ fn format_examples()
 
     //formatting floating point to 3 digit after decimal
     println!("{}",format!("{:.*}",3,3.143267));
+
+    //formatting user-defined types with debug attribute
+    #[derive(Debug)]
+    struct Structure(i32);
+
+    #[derive(Debug)]
+    struct Deep(Structure);
+
+    println!("Now {:?} will print!", Structure(7));
+
+    println!("Now {:?} will print!", Deep(Structure(99)));
+
+    #[derive(Debug)]
+    struct Person<'a> {
+        name: &'a str,
+        age:u8
+    }
+
+    //pretty print
+    let name = "Peter";
+    let age = 25;
+    let peter = Person { name, age};
+    println!("{:#?}",peter);
 }
 
 fn main()
