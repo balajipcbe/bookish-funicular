@@ -46,4 +46,18 @@ fn main() {
 
     println!("another_binding after init : {}", another_binding);
 
+
+    let immutable_box = Box::new(5i32);
+
+    println!("immutable box contains {}", immutable_box);
+
+    //Error, immutable 
+    //*immutable_box = 100;
+
+    let mut mutable_box = immutable_box;
+
+    *mutable_box = 100;
+
+    println!("mutable box contains {}", mutable_box);
+
 }
